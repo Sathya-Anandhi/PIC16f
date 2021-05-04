@@ -1,0 +1,48 @@
+
+
+Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
+                                                                                                           Mon May 03 17:14:44 2021
+
+
+     1                           	processor	16F877A
+     2                           	pagewidth 132
+     3                           	psect	pa_nodes0,global,class=CODE,delta=2
+     4                           
+     5                           ; Similar to Macro Definition in C-Programming
+     6  0006                     	;Address of PortB
+     7  0007                     	;Address of Portc
+     8  0086                     	;Address of PortB Config Reg
+     9  0003                     	;Address of Status Register
+    10  0000                     	org	0	;Starting adress of program coutner user defined
+    11  0000                     MAIN:
+    12                           
+    13                           ;Selecting reg Bank-0 <rp1(0) rp0(0)>
+    14  0000  1303               	bcf	3,6	;Clear the 6th bit of status reg.
+    15  0001  1283               	bcf	3,5	;Clear the 5th bit of status reg.
+    16  0002  3000               	movlw	0	; ;Move 0x00 (clear) to Working reg.
+    17  0003  0086               	movwf	6	;Clear PORTB before making it as OUPUT.
+    18                           
+    19                           ;Selecting reg Bank-1 <rp1(0) rp0(1)>
+    20  0004  1303               	bcf	3,6
+    21  0005  1683               	bsf	3,5
+    22  0006  3000               	movlw	0
+    23  0007  0087               	movwf	135	;Config PORTC as OUTPUT.
+    24  0008                     MAINLOOP:
+    25  0008  1006               	bcf	6,0
+    26  0009  2000'              	call	DELAY3
+    27  000A  1406               	bsf	6,0
+    28  000B  2000'              	call	DELAY3
+    29  000C  2800'              	goto	MAINLOOP
+    30  000D                     DELAY3:
+    31  000D  0B80'              	decfsz	COUNT1,f
+    32  000E  2800'              	goto	DELAY3
+    33  000F  0B80'              	decfsz	COUNT2,f
+    34  0010  2800'              	goto	DELAY3
+    35  0011  0008               	return
+
+
+Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
+Symbol Table                                                                                               Mon May 03 17:14:44 2021
+
+      MAIN 0000       PORTB 0006       TRISC 0087      DELAY3 000D      COUNT1 0000*     COUNT2 0000*     STATUS 0003  
+  MAINLOOP 0008  

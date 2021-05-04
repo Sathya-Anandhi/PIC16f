@@ -1,0 +1,32 @@
+### HEXMate logfile and output summary ###
+### Memory Usage ###
+ Unused memory ranges:
+  6h - FA3h
+  1000h - 3FFFh
+  4000h - 400Dh
+  4010h - 41FFh
+  4224h - 423Fh
+  
+ dist/default/debug\Hello_Blink.X.debug.hex ranges:
+  0h - 5h
+  FA4h - FFFh
+  400Eh - 400Fh
+  4200h - 4223h
+  
+### Hex Memory Map ###
+ Legend:
+  - = Unused memory
+  F = Filled ROM
+  S = Stored serial code
+  A = Stored ASCII string
+  R = Reserved for checksum
+  C = Stored checksum result
+  T = Trailing code
+  & = Find & replace opcode
+  X = Find & delete opcode
+  1 = dist/default/debug\Hello_Blink.X.debug.hex
+00000000: 111111----------------------------------------------------------
+00000F80: ------------------------------------1111111111111111111111111111
+00000FC0: 1111111111111111111111111111111111111111111111111111111111111111
+00004000: --------------11------------------------------------------------
+00004200: 111111111111111111111111111111111111----------------------------
